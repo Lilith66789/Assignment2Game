@@ -6,6 +6,7 @@ class Player : public GameObject
 	int health;
 	float speed;
 	sf::Texture texture;
+	bool onGround = CollisionWithTag("Ground");
 
 public:
 	Player();
@@ -13,7 +14,6 @@ public:
 	void handleInput(float dt);
 	void update(float dt);
 
-	bool onGround = CollisionWithTag("Ground");
 
 };
 

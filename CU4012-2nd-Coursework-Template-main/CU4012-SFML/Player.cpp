@@ -6,8 +6,6 @@ Player::Player()
 
 	health = 100;
 	speed = 150;
-	bool onGround = CollisionWithTag("Ground");
-
 
 	if (!texture.loadFromFile("Assets/Ball and Chain Bot/Run/runPlac.png"))
 	{
@@ -37,11 +35,9 @@ void Player::handleInput(float dt)
 	{
 		velocity = sf::Vector2f(0, 1*speed);
 	}
-
 	else if (input->isKeyDown(sf::Keyboard::W) && onGround)
 	{
-		velocity = (sf::Vector2f(0, -1*speed));
-	
+		velocity = sf::Vector2f(0, -1 * speed);
 	}
 	else
 	{
