@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "Player.h"
 
 Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, World* w)
 {
@@ -6,7 +7,12 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, World* w)
 	input = in;
 	gameState = gs;
 	world = w;
+
+
+	sf::View view(sf::FloatRect(0, 0, 1920, 1080));
+
 	// initialise game objects
+
 	p1.setPosition(100, 100);
 	p1.setInput(input);
 
@@ -93,17 +99,30 @@ void Level::handleInput(float dt)
 		bg2[i].handleInput(dt);
 		bg3[i].handleInput(dt);
 	}
+
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-	if(p1.CollisionWithTag("Enemy"))
-	{ 
-		
+	if (p1.CollisionWithTag("Enemy"))
+	{
+
 	}
 
 	tileManager.update(dt);
+
+
+	// Lock camera y-axis position
+	sf::View view = window->getView();
+	view.setCenter(view.getCenter().x, 540);
+
+	// Follow player on the x-axis
+	sf::Vector2f playerPosition = p1.getPosition();
+	float newX = std::max(playerPosition.x, view.getSize().x / 2.0f); // Ensure left side doesn't go past x = 0
+	view.setCenter(newX, view.getCenter().y);
+
+	window->setView(view);
 }
 
 // Render level

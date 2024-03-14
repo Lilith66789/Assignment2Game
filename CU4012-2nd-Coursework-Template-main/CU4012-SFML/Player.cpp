@@ -1,9 +1,13 @@
 #include "Player.h"
 
+
 Player::Player()
 {
+
 	health = 100;
-	speed = 200;
+	speed = 150;
+	bool onGround = CollisionWithTag("Ground");
+
 
 	if (!texture.loadFromFile("Assets/Ball and Chain Bot/Run/runPlac.png"))
 	{
@@ -14,10 +18,13 @@ Player::Player()
 	setCollisionBox(getPosition(), getSize());
 	setMass(100.f);
 	setTag("Player");
+
 }
 
 void Player::handleInput(float dt)
 {
+
+
 	if (input->isKeyDown(sf::Keyboard::A))
 	{
 		velocity = sf::Vector2f(-1*speed, 0);
@@ -31,9 +38,9 @@ void Player::handleInput(float dt)
 		velocity = sf::Vector2f(0, 1*speed);
 	}
 
-	else if (input->isKeyDown(sf::Keyboard::W))
+	else if (input->isKeyDown(sf::Keyboard::W) && onGround)
 	{
-		applyImpulse(sf::Vector2f(0, -1*speed));
+		velocity = (sf::Vector2f(0, -1*speed));
 	
 	}
 	else

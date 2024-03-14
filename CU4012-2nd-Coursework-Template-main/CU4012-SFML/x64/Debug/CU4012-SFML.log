@@ -1,18 +1,2 @@
-﻿  Background.cpp
-  Enemy.cpp
-  BaseLevel.cpp
-  Collision.cpp
-  GameObject.cpp
-  GameState.cpp
-  Input.cpp
-  TileManager.cpp
-C:\Users\wpc0006\Downloads\CU4012-2nd-Coursework-Template-main\CU4012-2nd-Coursework-Template-main\CU4012-SFML\Framework\TileManager.cpp(22,43): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Tiles.cpp
-  World.cpp
-  Ground.cpp
-  Level.cpp
-  Main.cpp
-  Menu.cpp
-  Player.cpp
-  Generating Code...
-  CU4012-SFML.vcxproj -> C:\Users\wpc0006\Downloads\CU4012-2nd-Coursework-Template-main\CU4012-2nd-Coursework-Template-main\x64\Debug\CU4012-SFML.exe
+﻿  Player.cpp
+  CU4012-SFML.vcxproj -> C:\Users\wpc0006\Documents\GitHub\Assignment2Game\CU4012-2nd-Coursework-Template-main\x64\Debug\CU4012-SFML.exe

@@ -13,7 +13,7 @@ Menu::Menu(sf::RenderWindow* hwnd, Input* in, GameState* game)
 
 	menu_texture.loadFromFile("gfx/menu.png");
 	menu_sprite.setTexture(menu_texture);
-	menu_sprite.setScale(0.5, 0.5);
+	menu_sprite.setScale(1.25, 1);
 
 
 	Title.setFont(titleFont);
